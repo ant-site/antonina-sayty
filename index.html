@@ -82,6 +82,11 @@
   .vstage img { display: block; margin: 0 auto; max-width: 100%; height: auto; border-radius: 10px; }
   .vstage.phone-mode img { max-width: 340px; border: 6px solid #11161d; border-radius: 28px; }
   .demo-cta .contacts { margin-top: 4px; }
+  .msg-label { display: block; font-size: .85rem; color: var(--ink-soft); margin: 4px 0 6px; }
+  #msg { width: 100%; font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin-bottom: 14px; resize: vertical; }
+  .btn { cursor: pointer; font: inherit; font-weight: 600; background: transparent; }
+  .btn.primary { background: var(--accent); }
+  .hint { color: var(--ink-soft); font-size: .88rem; margin: 10px 0 0; }
   footer { padding: 28px 0 48px; color: var(--ink-soft); font-size: .88rem; }
 </style>
 
@@ -230,11 +235,15 @@
 
   <section class="demo-cta" aria-labelledby="cta-h">
     <h2 id="cta-h">Покажу демо вашего сайта</h2>
-    <p class="sub">Нажмите на мессенджер. Сообщение уже написано, останется только отправить, а в конце дописать, чем вы занимаетесь. Соберу пример, как мог бы выглядеть ваш сайт, и покажу до того, как вы решите заказывать. Отвечаю в течение 1 дня.</p>
+    <p class="sub">Нажмите на мессенджер, сообщение для меня уже готово. Допишите в конце, чем вы занимаетесь, и отправьте. Отвечаю в течение 1 дня.</p>
+    <label class="msg-label" for="msg">Ваше сообщение</label>
+    <textarea id="msg" rows="3">Здравствуйте, Антонина! Хочу посмотреть демо сайта для моего бизнеса. Мой бизнес: </textarea>
     <div class="contacts">
-      <a class="btn primary" href="https://t.me/tosha7531?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BD%D1%82%D0%BE%D0%BD%D0%B8%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C%20%D0%B4%D0%B5%D0%BC%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20">Написать в Telegram</a>
-      <a class="btn" href="https://wa.me/79217349906?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BD%D1%82%D0%BE%D0%BD%D0%B8%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C%20%D0%B4%D0%B5%D0%BC%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20">Написать в WhatsApp</a>
+      <a class="btn primary" id="go-tg" href="https://t.me/tosha7531" target="_blank" rel="noopener">Написать в Telegram</a>
+      <a class="btn" id="go-wa" href="https://wa.me/79217349906" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      <button class="btn" type="button" id="copy-msg">Скопировать сообщение</button>
     </div>
+    <p class="hint" id="hint" role="status">Если в чате текст не появился сам, он уже скопирован: вставьте его и отправьте.</p>
   </section>
   <footer>Антонина, самозанятая. Полярные Зори, Мурманская область. Работаю по всей России.</footer>
 </main>
@@ -259,5 +268,23 @@
   document.getElementById('v-close').onclick = function () { dlg.close(); };
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
   dlg.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') step(-1); if (e.key === 'ArrowRight') step(1); });
+})();
+</script>
+<script>
+(function () {
+  var msg = document.getElementById('msg'), hint = document.getElementById('hint');
+  function text() { return msg.value.trim(); }
+  function copy() {
+    var t = text();
+    try { return navigator.clipboard.writeText(t).then(function () { return true; }, function () { return false; }); }
+    catch (e) { return Promise.resolve(false); }
+  }
+  function open(base, param) { return base + '?' + param + '=' + encodeURIComponent(text()); }
+  var tg = document.getElementById('go-tg'), wa = document.getElementById('go-wa');
+  tg.addEventListener('click', function () { tg.href = open('https://t.me/tosha7531', 'text'); copy(); hint.textContent = 'Сообщение скопировано. Если в чате пусто, вставьте его и отправьте.'; });
+  wa.addEventListener('click', function () { wa.href = open('https://wa.me/79217349906', 'text'); copy(); });
+  document.getElementById('copy-msg').addEventListener('click', function () {
+    copy().then(function (ok) { hint.textContent = ok ? 'Сообщение скопировано. Вставьте его в любой мессенджер.' : 'Выделите текст в окошке и скопируйте его.'; if (!ok) { msg.focus(); msg.select(); } });
+  });
 })();
 </script>
