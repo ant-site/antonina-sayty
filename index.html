@@ -1,0 +1,193 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Tenor+Sans&display=swap">
+<title>Антонина · сайты для малого бизнеса</title>
+<meta name="description" content="Антонина, самозанятая из Полярных Зорей. Делаю сайты-визитки и лендинги для малого бизнеса, фото, тексты, запись на сайте и поддержку. Работаю удалённо.">
+<style>
+
+  :root {
+    --canvas: #f3f5f7; --surface: #ffffff; --ink: #14202e; --ink-soft: #566270;
+    --accent: #1f4e79; --accent-deep: #173b5c; --accent-ink: #f4f8fc; --line: #d9e0e7;
+    --display: "Tenor Sans", Georgia, serif; --text: "Onest", "Segoe UI", system-ui, sans-serif;
+    --shadow: 0 1px 2px rgb(20 40 70 / .08), 0 8px 22px rgb(20 40 70 / .10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --canvas: #10171f; --surface: #18222d; --ink: #e9eef3; --ink-soft: #a3b0bd; --accent: #3f78b0; --accent-deep: #8fb8e3; --line: #2b3846; }
+  }
+  :root[data-theme="dark"] { --canvas: #10171f; --surface: #18222d; --ink: #e9eef3; --ink-soft: #a3b0bd; --accent: #3f78b0; --accent-deep: #8fb8e3; --line: #2b3846; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--canvas); color: var(--ink); font: 400 1rem/1.55 var(--text); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 920px; margin: 0 auto; padding-block: 0; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.01em; margin: 0; }
+  a { color: inherit; }
+
+  .hero { display: grid; gap: 24px; padding: 32px 0 8px; }
+  .hero img { width: 100%; max-height: 460px; object-fit: cover; object-position: 50% 15%; border-radius: 14px; box-shadow: var(--shadow); }
+  .kicker { font-size: .85rem; text-transform: uppercase; letter-spacing: .12em; color: var(--accent-deep); font-weight: 600; }
+  h1 { font-size: clamp(2.2rem, 7vw, 3.2rem); line-height: 1.08; margin: 8px 0 12px; }
+  .lead { color: var(--ink-soft); font-size: 1.05rem; margin: 0 0 20px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 22px; }
+  .facts li { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: .9rem; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 10px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--accent); color: var(--accent-deep); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+  @media (min-width: 760px) { .hero { grid-template-columns: 4fr 6fr; align-items: center; gap: 40px; padding-top: 48px; } }
+
+  section { padding: 44px 0 0; }
+  h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 6px; }
+  .sub { color: var(--ink-soft); margin: 0 0 20px; }
+  .grid { display: grid; gap: 16px; }
+  @media (min-width: 760px) { .grid.c2 { grid-template-columns: 1fr 1fr; } .grid.c3 { grid-template-columns: repeat(3, 1fr); } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; box-shadow: var(--shadow); }
+  .card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+  .card p { margin: 0; color: var(--ink-soft); font-size: .95rem; }
+
+  .tier .price { font: 400 1.8rem var(--display); color: var(--accent-deep); margin: 2px 0 10px; }
+  .tier ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: .95rem; }
+  .tier li { margin: 4px 0; }
+  .tier.main { border-color: var(--accent); }
+
+  .work { display: grid; gap: 10px; }
+  .work img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); display: block; }
+  .work a.link { font-weight: 600; color: var(--accent-deep); }
+
+  .steps { counter-reset: s; display: grid; gap: 12px; list-style: none; padding: 0; margin: 0; }
+  @media (min-width: 760px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+  .steps li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .steps li::before { content: counter(s); display: block; font: 400 1.6rem var(--display); color: var(--accent); }
+  .steps b { display: block; margin-bottom: 2px; }
+  .steps span { color: var(--ink-soft); font-size: .92rem; }
+
+  .contacts { display: flex; flex-wrap: wrap; gap: 10px; }
+  footer { padding: 28px 0 48px; color: var(--ink-soft); font-size: .88rem; }
+</style>
+
+<main class="wrap">
+
+  <header class="hero">
+    <img src="assets/owner-portrait.jpg" alt="Антонина, создатель сайтов" width="900" height="1342">
+    <div>
+      <div class="kicker">Меня зовут Антонина · Полярные Зори</div>
+      <h1>Делаю сайты для малого бизнеса по всей России</h1>
+      <p class="lead">Сайт-визитка или лендинг, который объясняет, кто вы, что делаете и сколько это стоит, чтобы клиенты не задавали одни и те же вопросы. Фото, тексты и запись на сайте тоже делаю сама.</p>
+      <ul class="facts">
+        <li>Самозанятая</li>
+        <li>Работаю удалённо, по всей России</li>
+        <li>Поддержка сайтов после сдачи</li>
+      </ul>
+      <div class="btns">
+        <a class="btn primary" href="https://wa.me/79217349906">WhatsApp +7 921 734-99-06</a>
+        <a class="btn" href="https://t.me/tosha7531">Telegram</a>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="do-h">
+    <h2 id="do-h">Что я делаю</h2>
+    <p class="sub">Всё под ключ: от разговора о вашем деле до сайта в интернете.</p>
+    <div class="grid c3">
+      <div class="card"><h3>Сайты-визитки</h3><p>Одна страница о вас: кто вы, услуги, цены, контакты. Ссылку удобно дать клиенту и поставить в карточку Яндекс Бизнеса.</p></div>
+      <div class="card"><h3>Лендинги</h3><p>Страница под одну задачу: продать товар, набрать записи, показать работы. Телефон, WhatsApp, ВКонтакте под рукой.</p></div>
+      <div class="card"><h3>Запись на сайте</h3><p>Клиент сам выбирает день и время, вам приходит заявка. Меньше переписки и звонков.</p></div>
+      <div class="card"><h3>Фото</h3><p>Подготовлю ваши фото для сайта и подскажу, что снять, чтобы страница выглядела живо.</p></div>
+      <div class="card"><h3>Тексты</h3><p>Пишу простым языком, без воды: что вы делаете, для кого и почему вам можно доверять.</p></div>
+      <div class="card"><h3>Поддержка</h3><p>Меняю цены, добавляю фото и отзывы, слежу за работой сайтов, которые сделала.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="price-h">
+    <h2 id="price-h">Цены</h2>
+    <p class="sub">Средняя цена сайта для малого бизнеса 25 000 ₽. Light от 15 000 ₽, под ключ с полным сопровождением от 35 000 ₽. Точную цену назову после разговора, до начала работы.</p>
+    <div class="grid c3">
+      <div class="card tier">
+        <h3>Light</h3>
+        <div class="price">от 15 000 ₽</div>
+        <ul>
+          <li>Простая визитка или лендинг</li>
+          <li>Адаптив под телефон</li>
+          <li>Ваши тексты и фото, я собираю страницу</li>
+        </ul>
+      </div>
+      <div class="card tier">
+        <h3>Стандарт</h3>
+        <div class="price">25 000 ₽</div>
+        <ul>
+          <li>Сайт-визитка или лендинг под вашу задачу</li>
+          <li>Адаптив под телефон</li>
+          <li>Помогу с текстами и фото</li>
+        </ul>
+      </div>
+      <div class="card tier main">
+        <h3>Под ключ</h3>
+        <div class="price">от 35 000 ₽</div>
+        <ul>
+          <li>Всё из Light</li>
+          <li>Тексты, подготовка фото, запись на сайте</li>
+          <li>Полное сопровождение после запуска</li>
+        </ul>
+      </div>
+      <div class="card tier">
+        <h3>Доработки</h3>
+        <div class="price">от 1 000 ₽</div>
+        <ul>
+          <li>Правки и новые блоки на готовом сайте</li>
+          <li>Замена цен, фото, текстов</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="work-h">
+    <h2 id="work-h">Мои работы</h2>
+    <p class="sub">Живые сайты, которые уже работают.</p>
+    <div class="grid c2">
+      <div class="work">
+        <img src="assets/sladosti.jpg" alt="Лендинг «Сладости для радости»: домашние десерты на заказ" width="1320" height="880" loading="lazy">
+        <b>Сладости для радости</b>
+        <span>Лендинг для домашней кондитерской, заказ через ВКонтакте.</span>
+        <a class="link" href="https://ant-site.github.io/sladosti-dlya-radosti/">Открыть сайт</a>
+      </div>
+      <div class="work">
+        <img src="assets/feya.jpg" alt="Сайт мастера маникюра и педикюра «Фея»" width="1320" height="880" loading="lazy">
+        <b>Фея педикюра и маникюра</b>
+        <span>Сайт мастера в Полярных Зорях: работы, цены, запись.</span>
+        <a class="link" href="https://feya-nogti.ru/">Открыть сайт</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="demo-h">
+    <h2 id="demo-h">Демо-сайты по нишам</h2>
+    <p class="sub">Кроме готовых сайтов, я сделала больше 60 демо-вариантов: показываю владельцу бизнеса, как его сайт может выглядеть, до заказа.</p>
+    <div class="grid c3">
+      <div class="card"><h3>Грузчики и перевозки</h3><p>Грузовое такси, переезды, междугородние перевозки.</p></div>
+      <div class="card"><h3>Клининг</h3><p>Уборка квартир и офисов, химчистка мебели.</p></div>
+      <div class="card"><h3>Ремонт и сантехника</h3><p>Ремонт квартир, сантехники, электрики.</p></div>
+      <div class="card"><h3>Дети и обучение</h3><p>Детские центры, сады, школы, курсы робототехники.</p></div>
+      <div class="card"><h3>Конные клубы</h3><p>Школы верховой езды и конные дворы.</p></div>
+      <div class="card"><h3>Красота и услуги</h3><p>Мастера, парикмахерские, праздники, аквагрим.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <h2 id="how-h">Как мы работаем</h2>
+    <ol class="steps">
+      <li><b>Разговор</b><span>Расскажете о деле, я задам вопросы.</span></li>
+      <li><b>План и цена</b><span>Называю стоимость и сроки до начала.</span></li>
+      <li><b>Сайт</b><span>Делаю, показываю, правим вместе.</span></li>
+      <li><b>Запуск и поддержка</b><span>Публикую и остаюсь на связи.</span></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="c-h">
+    <h2 id="c-h">Связаться</h2>
+    <p class="sub">Пишите в любой удобный мессенджер, отвечу и подскажу, что подойдёт вашему делу.</p>
+    <div class="contacts">
+      <a class="btn primary" href="https://wa.me/79217349906">WhatsApp +7 921 734-99-06</a>
+      <a class="btn" href="https://t.me/tosha7531">Telegram @tosha7531</a>
+      <span class="btn" style="user-select:all">sachaton@mail.ru</span>
+    </div>
+  </section>
+
+  <footer>Антонина, самозанятая. Полярные Зори, Мурманская область.</footer>
+</main>
